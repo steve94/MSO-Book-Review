@@ -1,4 +1,10 @@
 BookReview::Application.routes.draw do
+  resources :publishers
+
+  resources :authors
+
+  resources :genres
+
   resources :books
 
   # The priority is based upon order of creation:
