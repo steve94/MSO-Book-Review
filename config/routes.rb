@@ -1,4 +1,10 @@
 BookReview::Application.routes.draw do
+  resources :comments
+
+  resources :reviews
+
+  resources :locations
+
   resources :publishers
 
   resources :authors
