@@ -8,6 +8,14 @@ class Book < ActiveRecord::Base
   
   validates_presence_of :title
   
+  has_attached_file :cover,
+                    :url => "/covers/:id.:extension",
+                    :path => ":rails_root/public/covers/:id.:extension"
+  validates_attachment_content_type :cover,
+                                    :content_type => ['image/jpeg', 'image/png'],
+                                    :message => "Muss ein Bild im jpeg- oder png.Format sein."
+  validates_attachment_size :cover, :less_than => 5.megabytes
+  
   def author_name
     author.name if author
   end

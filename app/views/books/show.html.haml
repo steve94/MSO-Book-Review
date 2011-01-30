@@ -1,8 +1,9 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @book.title
+%h1= @book.title
+
+= image_tag @book.cover.url if @book.cover.size != nil
+
 %p
   %b Description:
   = @book.description

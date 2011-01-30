@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101210204538) do
+ActiveRecord::Schema.define(:version => 20110130140307) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(:version => 20101210204538) do
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "comments", :force => true do |t|
