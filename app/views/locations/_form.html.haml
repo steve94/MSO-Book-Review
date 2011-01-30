@@ -1,3 +1,5 @@
-= semantic_form_for @location do |f|
-  = f.inputs
-  = f.buttons
+= simple_form_for @location do |f|
+  = f.input :title
+  = f.input :shelf_number
+  = f.input :description
+  = f.button :submit

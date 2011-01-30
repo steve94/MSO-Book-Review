@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20101210204538) do
   create_table "books", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.date     "date_of_publication"
+    t.date     "published"
     t.integer  "author_id"
     t.integer  "publisher_id"
     t.integer  "genre_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20101210204538) do
     t.string   "user"
     t.string   "title"
     t.text     "body"
+    t.integer  "review_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20101210204538) do
     t.string   "title"
     t.text     "body"
     t.integer  "rating"
-    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

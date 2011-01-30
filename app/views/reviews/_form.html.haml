@@ -1,3 +1,6 @@
-= semantic_form_for @review do |f|
-  = f.inputs
-  = f.buttons
+= simple_form_for @review do |f|
+  = f.input :user
+  = f.input :title
+  = f.input :body
+  = f.input :rating
+  = f.button :submit
