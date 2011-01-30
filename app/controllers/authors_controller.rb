@@ -1,13 +1,7 @@
 class AuthorsController < ApplicationController
-  # GET /authors
-  # GET /authors.xml
-  def index
-    @authors = Author.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @authors }
-    end
+  def index
+    @authors = Author.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   # GET /authors/1
@@ -80,4 +74,5 @@ class AuthorsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end

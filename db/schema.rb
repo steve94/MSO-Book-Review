@@ -13,8 +13,7 @@
 ActiveRecord::Schema.define(:version => 20101210204538) do
 
   create_table "authors", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20101210204538) do
   end
 
   create_table "publishers", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

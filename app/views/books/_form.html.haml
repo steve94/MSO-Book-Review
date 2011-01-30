@@ -2,8 +2,8 @@
   = f.input :title
   = f.input :description
   = f.input :published
-  = f.association :author
-  = f.association :publisher
-  = f.association :genre
+  = auto_complete_input :book, :author_name, "Autor", authors_path(:js)
+  = auto_complete_input :book, :publisher_name, "Verlag", publishers_path(:js)
+  = auto_complete_input :book, :genre_title, "Genre", genres_path(:js)
   = f.association :location
   = f.button :submit

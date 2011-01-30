@@ -2,14 +2,14 @@
 
 %table
   %tr
-    %th Title
+    %th Name
     %th
     %th
     %th
 
   - @publishers.each do |publisher|
     %tr
-      %td= publisher.title
+      %td= publisher.name
       %td= link_to 'Show', publisher
       %td= link_to 'Edit', edit_publisher_path(publisher)
       %td= link_to 'Destroy', publisher, :confirm => 'Are you sure?', :method => :delete

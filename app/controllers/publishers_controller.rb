@@ -2,12 +2,7 @@ class PublishersController < ApplicationController
   # GET /publishers
   # GET /publishers.xml
   def index
-    @publishers = Publisher.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @publishers }
-    end
+    @publishers = Publisher.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   # GET /publishers/1

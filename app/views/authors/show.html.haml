@@ -1,11 +1,7 @@
 %p#notice= notice
 
 %p
-  %b First name:
-  = @author.first_name
-%p
-  %b Last name:
-  = @author.last_name
+  = @author.name
 
 = link_to 'Edit', edit_author_path(@author)
 \|
