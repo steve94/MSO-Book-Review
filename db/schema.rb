@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110130140307) do
     t.string   "title"
     t.text     "body"
     t.integer  "rating"
+    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
