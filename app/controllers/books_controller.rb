@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
-  # GET /books
-  # GET /books.xml
+
   def index
     @books = Book.all
 
@@ -10,8 +9,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/1
-  # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
 
@@ -21,8 +18,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/new
-  # GET /books/new.xml
   def new
     @book = Book.new
 
@@ -32,19 +27,16 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
   end
 
-  # POST /books
-  # POST /books.xml
   def create
     @book = Book.new(params[:book])
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
+        format.html { redirect_to(@book, :notice => "Buch wurde erstellt.")}
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
         format.html { render :action => "new" }
@@ -60,7 +52,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to(@book, :notice => 'Book was successfully updated.') }
+        format.html { redirect_to(@book, :notice => "Buch wurde aktuallisiert.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,8 +61,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
   def destroy
     @book = Book.find(params[:id])
     @book.destroy

@@ -1,31 +1,22 @@
-%h1 Listing books
+- content_for :sidebar do
+  %h3
+    = @books.size
+    Bücher
+  = link_to 'Buch hinzufügen', new_book_path
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Date of publication
-    %th Author
-    %th Publisher
-    %th Genre
-    %th Location
-    %th
-    %th
-    %th
+%h1 Alle Bücher
 
-  - @books.each do |book|
-    %tr
-      %td= book.title
-      %td= book.description
-      %td= book.published
-      %td= book.author_id
-      %td= book.publisher_id
-      %td= book.genre_id
-      %td= book.location_id
-      %td= link_to 'Show', book
-      %td= link_to 'Edit', edit_book_path(book)
-      %td= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Book', new_book_path
+- @books.each do |book|
+  .prev{:onclick =>"location.href='#{book_path(book)}'"}
+    .thumbnail= cover_for book, "thumb"
+    .info
+      %b= link_to book.title, book
+      %br
+      %i
+        von
+        = link_to book.author_name, book.author
+      %p
+        = book.year
+        = link_to book.publisher_name, book.publisher
+        |
+        = link_to book.genre_title, book.genre

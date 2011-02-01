@@ -1,28 +1,28 @@
-%p#notice= notice
-
+- content_for :sidebar do
+  = link_to 'Buch Bearbeiten', edit_book_path(@book)
+  \|
+  = link_to 'Alle Bücher', books_path
+  %br
+  = link_to 'Buch löschen', @book, :confirm => "#{@book.title} wirklich löschen?", :method => :delete
+    
 %h1= @book.title
+= cover_for @book
+%h3
+  = link_to @book.author_name, @book.author
+  = stars_for @book
+%table
+  %tr
+    %td Veröffentlicht
+    %td= @book.year
+  %tr
+    %td Verlag
+    %td= link_to @book.publisher_name, @book.publisher
+  %tr
+    %td Genre
+    %td= link_to @book.genre_title, @book.genre
+  -if @book.location
+    %tr
+      %td Im Regal
+      %td=link_to @book.shelf, @book.location
 
-= image_tag @book.cover.url if @book.cover.size != nil
-
-%p
-  %b Description:
-  = @book.description
-%p
-  %b Date of publication:
-  = @book.published
-%p
-  %b Author:
-  = @book.author_id
-%p
-  %b Publisher:
-  = @book.publisher_id
-%p
-  %b Genre:
-  = @book.genre_id
-%p
-  %b Location:
-  = @book.location_id
-
-= link_to 'Edit', edit_book_path(@book)
-\|
-= link_to 'Back', books_path
+%p= @book.description

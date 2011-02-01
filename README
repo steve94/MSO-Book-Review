@@ -1,20 +1,26 @@
-== MSO Book Review
+MSO-Book-Review
 
-Hier ist der bisherige Stand der Rails-Version von MSO Book Review.
+Hier ist die Rails-Version von MSO Book Review.
 
 Die Python-Version von Jannik liegt unter:
   https://github.com/kingair6/MSO-Book-Review
 
-TODO
-  1. Controller
-  2. Templates
-  
- (AJAX kommt wen alles andere steht.)
- 
+NÄCHSTE MEILENSTEINE
+  1.  Layout & CSS
+  2.  Rezensionen zum Buch schreiben vereinfachen
+  3.  Kommentare sinnvoll einbinden
+  4.  Layout & CSS
+  5.  Suchfunktion für Büchern
+  6.  Zufallsbuch-Funktion einbinden
+  7.  Layout & CSS
+  8.  MSO Benutzer einbringen 
+
+
 GEMS
 
 Als Template-Sprache haben wir haml gewählt, da es einfach (und) übersichtlicher ist.
   (Infos dazu unter http://haml-lang.com/)
   
-Für das Formular habe ich Formtastic verwendet: sehr cool!! (generator von haml macht beim form brobleme)
-  (Geniale Info dazu unter http://railscasts.com #184, #185)
+Für das Formular habe ich Simple Form verwendet: noch cool!! (generator von haml macht beim form brobleme)
+
+Paperclip sorgt für das einstellen von Büchercover in den JPEG und PNG Formaten.

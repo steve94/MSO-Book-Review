@@ -1,0 +1,40 @@
+!!! DOCTYPE html
+%html
+  %head
+    %title BookReview
+    = stylesheet_link_tag :all 
+    = javascript_include_tag :defaults 
+    = csrf_meta_tag 
+
+  %body
+    #top
+      #header
+        %h1 MSO Books
+      #nav
+        %ul
+          %li= link_to 'Startseite', books_path
+          %li= link_to 'Bücher', books_path
+          %li= link_to 'Rezensionen', new_review_path
+
+    #main
+      #content
+        -if notice
+          #notice= notice
+        = yield
+      #sidebar
+        #user_info
+          %p
+            %h3 Hallo du.
+            Du musst dich anmelden um die Site nutzen zu können.
+          %p
+            = link_to 'anmelden', books_path
+            \|
+            = link_to 'MSO intern', "https://intern.marienschule.com/magic/home"
+            
+        -if (yield :sidebar) != ""
+          #view= yield :sidebar
+          
+    #footer
+      Erstellt von Stefan Diesing ©2010
+      \|
+      = mail_to 'stefan.diesing@t-online.de','Mail senden', :subject => "MSO-Book-Reviews"

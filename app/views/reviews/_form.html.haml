@@ -1,6 +1,5 @@
 = simple_form_for @review do |f|
-  = f.input :user
   = f.input :title
   = f.input :body
-  = f.input :rating
+  = f.input :rating, :as => :select, :collection => {"5 Sterne" => 5, "4 Sterne" => 4, "3 Sterne" => 3, "3 Sterne" => 3, "3 Sterne" => 3, "2 Sterne" => 2, "1 Sterne" => 1, "0 Sterne" => 0}
   = f.button :submit

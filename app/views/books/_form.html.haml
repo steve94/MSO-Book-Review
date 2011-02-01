@@ -1,10 +1,10 @@
 = simple_form_for @book, :html => {:multipart => true} do |f|
-  = f.input :title
-  = f.input :description
-  = f.input :published
+  = f.input :title, :label => "Titel"
+  = f.input :description, :label => "Beschreibung"
+  = f.input :published, :label => "Erscheinungsjahr", :order => [:year], :start_year => 1860, :end_year => Date.today.year
   = auto_complete_input :book, :author_name, "Autor", authors_path(:js)
   = auto_complete_input :book, :publisher_name, "Verlag", publishers_path(:js)
   = auto_complete_input :book, :genre_title, "Genre", genres_path(:js)
-  = f.association :location
-  = f.input :cover, :as => :file, :hint => "Das Bild muss in jpeg/jpg oder png Format sein."
-  = f.button :submit
+  = f.association :location, :label => "Stantort"
+  = f.input :cover, :as => :file, :label => "Cover", :hint => "Das Bild muss in jpeg/jpg oder png Format sein."
+  = f.button :submit, "fertig"
