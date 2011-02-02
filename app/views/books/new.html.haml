@@ -1,8 +1,9 @@
+- content_for :sidebar do
+  = link_to 'Alle Bücher', books_path
+  
 %h1 Buch hinzufügen
 
 %p
   Du kannst hier ein Buch hinzufügen, dass in der MSO Bibliothek steht oder was sie unbedingt braucht.
 
 = render 'form'
-
-= link_to 'Alle Bücher', books_path

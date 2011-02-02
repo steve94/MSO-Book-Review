@@ -7,16 +7,4 @@
 %h1 Alle Bücher
 
 - @books.each do |book|
-  .prev{:onclick =>"location.href='#{book_path(book)}'"}
-    .thumbnail= cover_for book, "thumb"
-    .info
-      %b= link_to book.title, book
-      %br
-      %i
-        von
-        = link_to book.author_name, book.author
-      %p
-        = book.year
-        = link_to book.publisher_name, book.publisher
-        |
-        = link_to book.genre_title, book.genre
+  = render :partial => book

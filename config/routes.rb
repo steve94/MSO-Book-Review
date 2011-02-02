@@ -1,8 +1,4 @@
 BookReview::Application.routes.draw do
-  resources :comments
-
-  resources :reviews
-
   resources :locations
 
   resources :publishers
@@ -11,7 +7,11 @@ BookReview::Application.routes.draw do
 
   resources :genres
 
-  resources :books
+  resources :books do
+    resources :reviews do
+      resources :comments
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

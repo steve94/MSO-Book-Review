@@ -6,23 +6,46 @@
   = link_to 'Buch löschen', @book, :confirm => "#{@book.title} wirklich löschen?", :method => :delete
     
 %h1= @book.title
-= cover_for @book
-%h3
-  = link_to @book.author_name, @book.author
-  = stars_for @book.ranking
-%table
-  %tr
-    %td Veröffentlicht
-    %td= @book.year
-  %tr
-    %td Verlag
-    %td= link_to @book.publisher_name, @book.publisher
-  %tr
-    %td Genre
-    %td= link_to @book.genre_title, @book.genre
-  -if @book.location
+#top
+  = cover_for @book
+  %h3
+    = link_to @book.author_name, @book.author
+    = stars_for @book.rating
+  %table
     %tr
-      %td Im Regal
-      %td=link_to @book.shelf, @book.location
+      %td Veröffentlicht
+      %td= @book.year
+    %tr
+      %td Verlag
+      %td= link_to @book.publisher_name, @book.publisher
+    %tr
+      %td Genre
+      %td= link_to @book.genre_title, @book.genre
+    -if @book.location
+      %tr
+        %td Im Regal
+        %td=link_to @book.shelf, @book.location
 
-%p= @book.description
+  %p= @book.description
+
+.section
+  -unless @book.reviews.size == 0
+    -@book.reviews.each do |review|
+      .prev{:onclick =>"location.href='#{book_review_path(review)}'"}
+        = stars_for(review.rating)
+        %b= review.title
+        von
+        %i= review.user
+        = link_to "weiter", book_review_path(@book, review), {:class => "action"}
+  -else
+    %p{:class => "empty"}
+      Noch keine Bewertungen erstellt.
+      %br
+      Sei der erste.
+  
+.section
+  %h3
+    = @book.title
+    bewerten
+  
+  = render :partial => 'reviews/form'

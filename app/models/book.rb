@@ -47,7 +47,7 @@ class Book < ActiveRecord::Base
     location.shelf if location
   end
   
-  def ranking
+  def rating
     unless reviews.size == 0
       stars = 0
       reviews.each{ |e| stars += e.rating}

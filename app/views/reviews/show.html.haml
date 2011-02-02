@@ -1,21 +1,31 @@
-%p#notice= notice
+- content_for :sidebar do
+  = link_to 'Bewertung entfernen', book_review_path(@review.book, @review), :confirm => 'Wirklich entfernen?', :method => :delete
 
-%p
-  %b User:
-  = @review.user
-%p
-  %b Title:
-  = @review.title
-%p
-  %b Body:
-  = @review.body
-%p
-  %b Rating:
-  = @review.rating
-%p
-  %b Comment:
-  = @review.comment_id
+#top
+  %h1= @review.title
+  = stars_for @review.rating
+  %i= @review.user
+  %p= @review.body
+  = render :partial => @review.book
 
-= link_to 'Edit', edit_review_path(@review)
-\|
-= link_to 'Back', reviews_path
+.section
+  -unless @review.comments.size == 0
+    -@review.comments.each do |comment|
+      .comment_show
+        %i
+          = comment.user
+          schreibt:
+        %br
+        %b= comment.title
+        = link_to 'entfernen', book_review_comment_path(@review.book, @review, comment), :confirm => 'Wirklich entfernen?', :method => :delete
+        -unless comment.body.size == 0
+          %p= comment.body
+  -else
+    %p{:class => "empty"}
+      Kein Kommentar zu dieser Bewertung
+      %br
+      Sei der erste.
+  
+.section
+  %h3 Bewertung kommentieren
+  = render :partial => 'comments/form'
