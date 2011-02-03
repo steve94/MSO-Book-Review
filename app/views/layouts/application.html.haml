@@ -8,12 +8,14 @@
 
   %body
     #banner
-      #header
+      #header{:onclick => "location.href='#{root_path}'"}
         %h1 MSO Books
       #nav
         %ul
-          %li= link_to 'Startseite', books_path
+          %li= link_to 'Startseite', root_path
           %li= link_to 'Bücher', books_path
+          %li= link_to 'Autoren', authors_path
+          %li= link_to 'Genren', genres_path
 
     #main
       #content

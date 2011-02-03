@@ -1,0 +1,17 @@
+#top
+  %h1 MSO Bücher
+  %p
+    Unsere Bibliothek hat viele Bücher, doch wie findet man die Richtigen für sich?
+    %br Hiermit, der 
+    %b MSO Bücher Seite.
+  %p
+    Du hast ein Buch gelesen und möchtest es anderen weiterempfehlen?
+    %br Suche hier dein Buch oder füge es hinzu und bewerte es.
+
+  %h3 Top 5
+  - 5.times do |i|
+    = render :partial => @books[i] if @books[i]
+  
+  %h3 Zuletzt hinzugefügt
+  = render :partial => @new_book if @new_book
+    

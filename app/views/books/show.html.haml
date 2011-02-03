@@ -31,7 +31,7 @@
 .section
   -unless @book.reviews.size == 0
     -@book.reviews.each do |review|
-      .prev{:onclick =>"location.href='#{book_review_path(review)}'"}
+      .prev{:onclick =>"location.href='#{book_review_path(@book, review)}'"}
         = stars_for(review.rating)
         %b= review.title
         von
