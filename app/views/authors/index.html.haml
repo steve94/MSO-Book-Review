@@ -1,19 +1,19 @@
-%h1 Listing authors
+%h1 Nach Autoren
 
-%table
-  %tr
-    %th name
-    %th
-    %th
-    %th
-
-  - @authors.each do |author|
-    %tr
-      %td= author.name
-      %td= link_to 'Show', author
-      %td= link_to 'Edit', edit_author_path(author)
-      %td= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Author', new_author_path
+/ - @authors.each do |author|
+/   .prev_small{:onclick =>"location.href='#{author_path(author)}'"}
+/     = stars_for author.rating
+/     %b= link_to author.name, author
+/     = "(#{author.books.size})"
+/     = link_to "weiter", author, {:class => "action"}
+/     
+- @authors.each do |author|
+  .prev{:onclick =>"location.href='#{author_path(author)}'"}
+    .thumbnail= cover_for author.books[rand(author.books.size)], "thumb"
+    .info
+      %b= link_to author.name, author
+      %br
+      - author.genres.each do |genre|
+        = link_to genre.title, genre
+      %p
+        = stars_for author.rating

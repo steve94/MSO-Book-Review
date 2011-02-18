@@ -145,9 +145,9 @@ de:
       prompt: "Bitte wählen"
 
     submit:
-      create: '%{model} erstellen'
-      update: '%{model} aktualisieren'
-      submit: '%{model} speichern'
+      create: 'erstellen'
+      update: 'aktualisieren'
+      submit: 'speichern'
 
   errors:
     format: "%{attribute} %{message}"

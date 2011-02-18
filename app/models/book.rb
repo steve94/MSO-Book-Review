@@ -50,7 +50,7 @@ class Book < ActiveRecord::Base
   def rating
     unless reviews.size == 0
       stars = 0
-      reviews.each{ |e| stars += e.rating}
+      reviews.each{ |review| stars += review.rating}
       return stars = stars.to_f / reviews.size
     else
       return 0

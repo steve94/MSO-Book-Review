@@ -6,14 +6,12 @@ Die Python-Version von Jannik liegt unter:
   https://github.com/kingair6/MSO-Book-Review
 
 NÄCHSTE MEILENSTEINE
-  1.  Suchfunktion für Büchern
-  2.  Zufallsbuch-Funktion einbinden
-  3.  Startseite
-  5.  Sortieren nach Autoren
-  6.  nach Genre
-  7.  nach Verlagen
-  8.  Layout & CSS
-  9.  MSO Benutzer einbringen 
+  1.  nach Genre
+  2.  nach Verlage
+  3.  Suchfunktion für Büchern, Autoren, Genren und Verlage
+  4.  Zufallsbuch-Funktion einbinden
+  5.  Layout & CSS
+  6.  MSO Benutzer einbringen 
 
 
 GEMS

@@ -5,8 +5,8 @@
   %h1= @review.title
   = stars_for @review.rating
   %i= @review.user
-  %p= @review.body
   = render :partial => @review.book
+  %p= @review.body
 
 .section
   -unless @review.comments.size == 0

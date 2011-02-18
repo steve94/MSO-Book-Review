@@ -1,4 +1,4 @@
-#top
+#top  
   %h1 MSO Bücher
   %p
     Unsere Bibliothek hat viele Bücher, doch wie findet man die Richtigen für sich?
@@ -8,10 +8,31 @@
     Du hast ein Buch gelesen und möchtest es anderen weiterempfehlen?
     %br Suche hier dein Buch oder füge es hinzu und bewerte es.
 
-  %h3 Top 5
-  - 5.times do |i|
+
+.section  
+  %h3 Beliebtesten Bücher
+  - 3.times do |i|
     = render :partial => @books[i] if @books[i]
-  
+
+
+.section 
   %h3 Zuletzt hinzugefügt
   = render :partial => @new_book if @new_book
-    
+
+
+.section  
+  %h3 Autornen
+  - 10.times do |i|
+    -unless @authors[i] == nil
+      .prev_small{:onclick =>"location.href='#{author_path(@authors[i])}'"}
+        %b= link_to @authors[i].name, @authors[i]
+        = "(#{@authors[i].books.size})"
+  
+
+
+.section  
+  %h3 Genres
+  - @genres.each do |genre|
+    .prev_small{:onclick =>"location.href='#{genre_path(genre)}'"}
+      %b= link_to genre.title, genre
+      = "(#{genre.books.size})"

@@ -1,8 +1,12 @@
-%p#notice= notice
+-content_for :sidebar do
+  = link_to 'Edit', edit_author_path(@author)
 
-%p
+%h1
   = @author.name
+  = stars_for @author.rating
 
-= link_to 'Edit', edit_author_path(@author)
-\|
-= link_to 'Back', authors_path
+%p= book_sentence_for @author
+
+.section
+  - @author.books.each do |book|
+    = render :partial => book
