@@ -7,7 +7,10 @@
   %p
     Du hast ein Buch gelesen und möchtest es anderen weiterempfehlen?
     %br Suche hier dein Buch oder füge es hinzu und bewerte es.
-
+    
+  %ul
+    %li= link_to "Buch hinzufügen", new_book_path
+    %li= link_to "Genre hinzufügen", new_genre_path
 
 .section  
   %h3 Beliebtesten Bücher
@@ -20,19 +23,26 @@
   = render :partial => @new_book if @new_book
 
 
-.section  
-  %h3 Autornen
-  - 10.times do |i|
-    -unless @authors[i] == nil
-      .prev_small{:onclick =>"location.href='#{author_path(@authors[i])}'"}
-        %b= link_to @authors[i].name, @authors[i]
-        = "(#{@authors[i].books.size})"
+.section
   
-
-
-.section  
-  %h3 Genres
-  - @genres.each do |genre|
-    .prev_small{:onclick =>"location.href='#{genre_path(genre)}'"}
-      %b= link_to genre.title, genre
-      = "(#{genre.books.size})"
+  .left_part
+    %h3 Besten Autornen
+    - 10.times do |i|
+      -unless @authors[i] == nil
+        - author = @authors[i]
+        .prev_small{:onclick =>"location.href='#{author_path(author)}'"}
+          %b= link_to author.name, author
+          = "(#{author.books.size})"
+    %p
+      Die Autoren werden nach der Bewertungssumme ihrer Bücher bewertet.
+    
+  .right_part
+    %h3 Alle Genres
+    - @genres.each do |genre|
+      .prev_small{:onclick =>"location.href='#{genre_path(genre)}'"}
+        %b= link_to genre.title, genre
+        = "(#{genre.books.size})"
+    %p
+      Du kannst auch ein
+      = link_to "Genre hinzufügen",new_genre_path
+      ohne das du ein Buch einstellst.

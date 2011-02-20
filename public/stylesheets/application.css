@@ -209,6 +209,24 @@ body {
 	text-align:center;
 }
 
+div.left_part, div.right_part{
+	width: 290px;
+	margin: 5px;
+	overflow: hidden;
+}
+
+div.left_part{
+	float: left;
+}
+
+div.right_part{
+	float: right;
+}	
+
+div.left_part div.prev_small, div.right_part div.prev_small{
+	width: 200px;
+}
+
 .comment_show {
 	min-height: 40px;
 	border-left: 2px solid rgb(137,72,11);
@@ -326,4 +344,43 @@ body {
 .section .simple_form textarea{
 	width: 350px;
 	height: 120px;
+}
+
+div.auto_complete {
+	border-radius: 10px;
+	max-width: 265px;
+	left: 400px;
+	margin-top: 35px;
+	margin-left: 8px;
+	color: #000;
+	background: #000;
+	border: 5px solid rgba(0,0,0,0.9);
+}
+
+div.auto_complete ul {
+	border-radius: 5px;
+	background: #fff;
+	overflow: hidden;
+	margin:0;
+	padding:0;
+  list-style-type:none;
+}
+
+div.auto_complete ul li {
+	margin:0;
+	padding:5px;
+	border-bottom: 1px solid #aaa;
+	background-color: #fff;
+}
+
+div.auto_complete ul li.selected {
+	background: #ddf;
+	cursor: pointer;
+	color: #000;
+}
+
+div.auto_complete ul strong.highlight {
+	color: #800; 
+	margin:0;
+	padding:0;
 }
